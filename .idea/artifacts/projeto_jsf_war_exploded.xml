@@ -1,0 +1,27 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="projeto-jsf:war exploded">
+    <output-path>$PROJECT_DIR$/target/projeto-jsf</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>projeto-jsf</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="projeto-jsf" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: com.sun.faces:jsf-api:2.2.20" />
+          <element id="library" level="project" name="Maven: com.sun.faces:jsf-impl:2.2.20" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/projeto-jsf/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="projeto-jsf/web/Web" />
+    </root>
+  </artifact>
+</component>
