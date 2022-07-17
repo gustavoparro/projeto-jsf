@@ -10,7 +10,7 @@
 <h:body>
     <h:outputLabel>Authentication</h:outputLabel>
 
-    <h:form>
+    <h:form id="auth_form">
         <div>
             <h:outputLabel for="username" value="Username:"/><br/>
             <h:inputText id="username" value="#{authController.appUser.username}"/>
@@ -21,7 +21,7 @@
             <h:inputSecret id="password" value="#{authController.appUser.password}"/>
         </div>
 
-        <h:commandButton value="Sign in" action="#{authController.signIn()}"/>
+        <h:commandButton id="sign_in" value="Sign in" action="#{authController.signIn()}"/>
     </h:form>
 </h:body>
 </html>
