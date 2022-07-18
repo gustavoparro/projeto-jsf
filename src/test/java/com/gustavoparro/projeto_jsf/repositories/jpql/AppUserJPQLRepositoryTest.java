@@ -1,14 +1,13 @@
-package com.gustavoparro.projeto_jsf.repositories;
+package com.gustavoparro.projeto_jsf.repositories.jpql;
 
 import com.gustavoparro.projeto_jsf.models.AppUser;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 
-public class AppUserRepositoryTest {
+public class AppUserJPQLRepositoryTest {
 
-    private final AppUserRepository userRepository = new AppUserRepository();
+    private final AppUserJPQLRepository userRepository = new AppUserJPQLRepository();
 
     @Test
     public void save() {
@@ -18,7 +17,7 @@ public class AppUserRepositoryTest {
         appUser = userRepository.save(appUser);
         userRepository.commitTransaction();
 
-        AppUser userSaved = userRepository.findById(appUser.getId());
+        AppUser userSaved = userRepository.findById(appUser.getId()).orElse(null);
 
         assertEquals(appUser, userSaved);
     }
@@ -35,9 +34,19 @@ public class AppUserRepositoryTest {
         userRepository.remove(appUser);
         userRepository.commitTransaction();
 
-        AppUser userRemoved = userRepository.findById(appUser.getId());
+        AppUser userRemoved = userRepository.findById(appUser.getId()).orElse(null);
 
         assertNull(userRemoved);
+    }
+
+    @Test
+    public void findByUsername() {
+        String username = "THEbrayan";
+        String password = "123456";
+        AppUser user = userRepository.findByUsernameAndPassword(username, password).orElse(null);
+
+        assertNotNull(user);
+        assertEquals(user.getUsername(), username);
     }
 
 }

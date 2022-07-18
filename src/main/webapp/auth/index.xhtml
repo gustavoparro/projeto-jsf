@@ -3,25 +3,36 @@
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 <h:head>
     <title>Projeto JSF | Auth</title>
+
+    <h:outputStylesheet library="webjars" name="primeflex/3.2.1/primeflex.min.css"/>
+    <h:outputStylesheet name="main.css" library="css"/>
 </h:head>
 <h:body>
-    <h:outputLabel>Authentication</h:outputLabel>
+    <h:form id="auth_form" styleClass="auth_form">
+        <div class="ui-fluid auth_container">
+            <div class="auth_title">
+                <h:outputText value="Authentication"/>
+            </div>
 
-    <h:form>
-        <div>
-            <h:outputLabel for="username" value="Username:"/><br/>
-            <h:inputText id="username" value="#{authController.appUser.username}"/>
+            <div class="auth_input">
+                <p:outputLabel for="username" value="Username:"/>
+                <p:inputText id="username" value="#{authController.appUser.username}"/>
+            </div>
+
+            <div class="auth_input">
+                <p:outputLabel for="password" value="Password:"/>
+                <p:password id="password" value="#{authController.appUser.password}"/>
+            </div>
+
+            <div class="auth_btn">
+                <h:commandButton id="signin_btn" value="Sign in"
+                                 action="#{authController.signIn()}"/>
+            </div>
         </div>
-
-        <div>
-            <h:outputLabel for="password" value="Password:"/><br/>
-            <h:inputSecret id="password" value="#{authController.appUser.password}"/>
-        </div>
-
-        <h:commandButton value="Sign in" action="#{authController.signIn()}"/>
     </h:form>
 </h:body>
 </html>

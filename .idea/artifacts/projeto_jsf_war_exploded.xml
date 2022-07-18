@@ -20,6 +20,8 @@
           <element id="library" level="project" name="Maven: org.glassfish:jakarta.faces:4.0.0" />
           <element id="library" level="project" name="Maven: jakarta.annotation:jakarta.annotation-api:2.1.0" />
           <element id="library" level="project" name="Maven: org.glassfish:jakarta.json:2.0.1" />
+          <element id="library" level="project" name="Maven: org.primefaces:primefaces:jakarta:11.0.0" />
+          <element id="library" level="project" name="Maven: org.webjars.npm:primeflex:3.2.1" />
           <element id="library" level="project" name="Maven: org.hibernate.orm:hibernate-core:6.1.1.Final" />
           <element id="library" level="project" name="Maven: jakarta.persistence:jakarta.persistence-api:3.0.0" />
           <element id="library" level="project" name="Maven: jakarta.transaction:jakarta.transaction-api:2.0.0" />

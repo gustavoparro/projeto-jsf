@@ -1,0 +1,1 @@
+INSERT INTO public.appuser(fullname, username, password) VALUES ('Brayan Mota', 'THEbrayan', '123456');
