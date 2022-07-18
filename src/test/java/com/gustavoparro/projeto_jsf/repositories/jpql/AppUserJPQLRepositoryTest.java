@@ -40,9 +40,10 @@ public class AppUserJPQLRepositoryTest {
     }
 
     @Test
-    public void findById() {
+    public void findByUsername() {
         String username = "THEbrayan";
-        AppUser user = userRepository.findByUsername(username).orElse(null);
+        String password = "123456";
+        AppUser user = userRepository.findByUsernameAndPassword(username, password).orElse(null);
 
         assertNotNull(user);
         assertEquals(user.getUsername(), username);

@@ -12,14 +12,16 @@ public class AppUserJPQLRepository extends EntityRepository<AppUser> {
         return Optional.of(entityManager.find(AppUser.class, id));
     }
 
-    public Optional<AppUser> findByUsername(String username) {
+    public Optional<AppUser> findByUsernameAndPassword(String username, String password) {
         String jpql = """
                 SELECT u FROM AppUser u
                 WHERE u.username like :username
+                AND u.password like :password
         """;
 
         TypedQuery<AppUser> userTypedQuery = entityManager.createQuery(jpql, AppUser.class);
         userTypedQuery.setParameter("username", username);
+        userTypedQuery.setParameter("password", password);
 
         return Optional.of(userTypedQuery.getSingleResult());
     }
